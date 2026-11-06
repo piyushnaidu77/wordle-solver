@@ -1,0 +1,23 @@
+{
+  "answers": 2315,
+  "allowed_guesses": 12972,
+  "reward": "Solving in n guesses returns -n. Failing after 6 returns -7.",
+  "reinforce": {
+    "games": 2315,
+    "fails": 29,
+    "histogram": {
+      "1": 1,
+      "2": 90,
+      "3": 681,
+      "4": 1009,
+      "5": 413,
+      "6": 92
+    },
+    "mean_cost": 3.922246220302376,
+    "mean_guesses_when_solved": 3.8832020997375327,
+    "episodes": 20000,
+    "possible_weight": 26.056751251220703,
+    "train_cost_first_1000": 6.48,
+    "train_cost_last_1000": 3.948
+  }
+}

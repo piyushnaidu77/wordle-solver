@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wordle</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  <div id="live" class="sr-only" aria-live="polite"></div>
+
+  <header>
+    <div class="header-side"></div>
+    <h1>Wordle</h1>
+    <div class="header-side right">
+      <button id="help-btn" class="icon-btn" type="button" aria-label="How to play">
+        <svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true">
+          <circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.8"></circle>
+          <path d="M9.4 9.1a2.6 2.6 0 1 1 3.5 2.4c-.8.3-1.4.9-1.4 1.8V14.2" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"></path>
+          <circle cx="12" cy="17.2" r="0.9" fill="currentColor"></circle>
+        </svg>
+      </button>
+    </div>
+  </header>
+
+  <div class="workspace">
+    <aside class="answers" aria-label="Answer list">
+      <label class="search">
+        <span class="sr-only">Filter answers</span>
+        <input id="filter" type="search" placeholder="Find an answer" autocomplete="off" spellcheck="false" />
+      </label>
+      <p id="list-count" class="list-count">Loading answers…</p>
+      <div id="answer-list" class="answer-list" role="listbox" aria-label="Possible answers"></div>
+    </aside>
+
+    <main>
+      <p id="status" class="status">Pick an answer. The solver chooses the guesses.</p>
+      <div class="board-wrap">
+        <p id="loading" class="loading">Loading solver…</p>
+        <div id="board" class="board" role="grid" aria-label="Solver guesses"></div>
+      </div>
+      <div id="keyboard" class="keyboard" aria-hidden="true"></div>
+    </main>
+  </div>
+
+  <dialog id="help-dialog" aria-labelledby="help-title">
+    <h2 id="help-title">How this works</h2>
+    <p>Choose the secret word from the answer list. A reinforcement-learning policy picks every guess. It was trained to finish in as few guesses as possible, and each guess can be any allowed word.</p>
+    <p>Green means the letter is in the right spot. Yellow means it is in the word, in another spot. Gray means it is not in the word.</p>
+    <button id="help-close" class="primary" type="button">Got it</button>
+  </dialog>
+
+  <script src="js/game.js" type="module"></script>
+</body>
+</html>
